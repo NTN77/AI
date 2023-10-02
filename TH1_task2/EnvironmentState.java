@@ -1,9 +1,9 @@
-package TH1; 
+package TH1_task2; 
 
 import java.util.HashMap;
 import java.util.Map;
 
-import TH1.Environment.LocationState;
+import TH1_task2.Environment.LocationState;
 
 public class EnvironmentState {
 	private Map<String, Environment.LocationState> state = new HashMap<String, Environment.LocationState>();

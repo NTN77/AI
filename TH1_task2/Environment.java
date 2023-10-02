@@ -1,4 +1,4 @@
-package TH1; 
+package TH1_task2; 
 
 public class Environment {
 	public static final Action MOVE_LEFT = new DynamicAction("LEFT");

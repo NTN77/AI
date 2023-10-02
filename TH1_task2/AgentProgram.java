@@ -1,6 +1,6 @@
-package TH1;
+package TH1_task2;
 
-import TH1.Environment.LocationState;
+import TH1_task2.Environment.LocationState;
 
 public class AgentProgram {
 

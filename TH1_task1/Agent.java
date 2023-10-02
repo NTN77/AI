@@ -1,4 +1,4 @@
-package TH1; 
+package TH1_task1; 
 
 public class Agent {
 	private AgentProgram program;

@@ -1,4 +1,4 @@
-package TH1; 
+package TH1_task1; 
 
 public class NoOpAction extends Action {
 	public static final NoOpAction NO_OP = new NoOpAction();

@@ -1,4 +1,4 @@
-package TH1; 
+package TH1_task2; 
 
 public class TestSimpleReflexAgent {
 	public static void main(String[] args) {
