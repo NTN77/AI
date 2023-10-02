@@ -10,6 +10,7 @@ public class Environment {
 	public static final String LOCATION_B = "B";
 	public static final String LOCATION_C = "C";
 	public static final String LOCATION_D = "D";
+	public int score = 0;
 
 	public enum LocationState {
 		CLEAN, DIRTY
@@ -36,20 +37,29 @@ public class Environment {
 	// Update enviroment state when agent do an action
 	public EnvironmentState executeAction(Action action) {//**********
 		String agentLocation = envState.getAgentLocation(); 
-		if(action.equals(MOVE_RIGHT) && LOCATION_A.equals(agentLocation)) {
-			envState.setAgentLocation(LOCATION_B);
-		}
-		else if(action.equals(MOVE_DOWN) && LOCATION_B.equals(agentLocation)) {
-			envState.setAgentLocation(LOCATION_C);
-		}
-		else if(action.equals(MOVE_LEFT) && LOCATION_C.equals(agentLocation)) {
-			envState.setAgentLocation(LOCATION_D);
-		}
-		else if(action.equals(MOVE_UP) && LOCATION_D.equals(agentLocation)) {
-			envState.setAgentLocation(LOCATION_A);
-		}
-		else if(action.equals(SUCK_DIRT)) {
-			envState.setLocationState(agentLocation, LocationState.CLEAN);
+		if(action == Environment.SUCK_DIRT) {
+			score += 500;
+			envState.setLocationState(envState.getAgentLocation(), LocationState.CLEAN);
+		}else {
+			score -= 10;
+			if(action.equals(MOVE_RIGHT) && LOCATION_A.equals(agentLocation)) {
+				envState.setAgentLocation(LOCATION_B);
+			}
+			else if(action.equals(MOVE_DOWN) && LOCATION_B.equals(agentLocation)) {
+				envState.setAgentLocation(LOCATION_D);
+			}
+			else if(action.equals(MOVE_LEFT) && LOCATION_D.equals(agentLocation)) {
+				envState.setAgentLocation(LOCATION_C);
+			}
+			else if(action.equals(MOVE_UP) && LOCATION_C.equals(agentLocation)) {
+				envState.setAgentLocation(LOCATION_A);
+			}
+			else if(action.equals(SUCK_DIRT)) {
+				envState.setLocationState(agentLocation, LocationState.CLEAN);
+			}
+			else {
+				score -= 90;
+			}
 		}
 		return envState;
 	}
@@ -68,7 +78,7 @@ public class Environment {
 		Action anAction = agent.execute(getPerceptSeenBy());
 		EnvironmentState es = executeAction(anAction);
 
-		System.out.println("Agent Loc.: " + agentLocation + "\tAction: " + anAction);
+		System.out.println("Agent Loc.: " + agentLocation + "\tAction: " + anAction + "\tScore: " + score);
 
 		if ((es.getLocationState(LOCATION_A) == LocationState.CLEAN)
 				&& (es.getLocationState(LOCATION_B) == LocationState.CLEAN)
