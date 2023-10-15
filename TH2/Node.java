@@ -95,7 +95,7 @@ public class Node implements Comparable<Node> {
 
 	@Override
 	public String toString() {
-		return this.label + "_" + this.parent.getLabel() + " " + this.pathCost;
+		return this.label + " " + this.pathCost;
 	}
 
 	@Override

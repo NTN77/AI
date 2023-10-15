@@ -34,4 +34,10 @@ public class BreadthFirstSearchAlgo_TreeSearch implements ISearchAlgo{
 		return execute(startExecute, goal);
 	}
 
+	@Override
+	public Node execute(Node root, String goal, int limitedDepth) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

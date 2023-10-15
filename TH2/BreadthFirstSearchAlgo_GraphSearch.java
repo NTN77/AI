@@ -21,7 +21,7 @@ public class BreadthFirstSearchAlgo_GraphSearch implements ISearchAlgo{
 			}else {
 				List<Node> children =current.getChildrenNodes();
 				for (Node node : children) {
-					if(!contain.contains(node) && !frontier.contains(node)){
+				if(!contain.contains(node) && !frontier.contains(node)){
 					node.setParent(current);
 					frontier.add(node);
 					contain.add(node);
@@ -39,6 +39,12 @@ public class BreadthFirstSearchAlgo_GraphSearch implements ISearchAlgo{
 		Node startExecute = execute(root, start);
 		startExecute.setParent(null);
 		return execute(startExecute, goal);
+	}
+
+	@Override
+	public Node execute(Node root, String goal, int limitedDepth) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

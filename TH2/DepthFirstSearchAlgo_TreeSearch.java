@@ -20,7 +20,7 @@ public class DepthFirstSearchAlgo_TreeSearch implements ISearchAlgo{
 					child.get(i).setParent(current);
 					frontier.add(child.get(i));
 				}
-			System.out.println(frontier);
+		//	System.out.println(frontier);
 			}
 			
 		return null;
@@ -31,6 +31,12 @@ public class DepthFirstSearchAlgo_TreeSearch implements ISearchAlgo{
 		Node startExecute = execute(root, start);
 		startExecute.setParent(null);
 		return execute(startExecute, goal);
+	}
+
+	@Override
+	public Node execute(Node root, String goal, int limitedDepth) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
